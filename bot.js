@@ -17,13 +17,13 @@ client.on('msg', msg => {
     	msg.reply('Slaw mn MrBot, Sarmand(MR PANDA) druste krdum :)');
   	}
 });
-bot.on("message", message => {
-  let args = message.content.substring(PREFIX.length).split(" ");
+bot.on("message", kickcmd => {
+  let args = kickcmd.content.substring(PREFIX.length).split(" ");
 
   switch (args[0]) {
     case "kick":
-      if (!args[1]) message.channel.send("You need to Specify a person");
-      const user = message.mentions.users.first();
+      if (!args[1]) kickcmd.channel.send("You need to Specify a person");
+      const user = kickcmd.mentions.users.first();
 
       if (user) {
         const member = member.guild.member(usre);
@@ -32,17 +32,17 @@ bot.on("message", message => {
           member
             .kick("You where kick for tralling")
             .then(() => {
-              message.reply("successfully kicked ${user.tag}");
+              kickcmd.reply("successfully kicked ${user.tag}");
             })
             .catch(err => {
-              message.replay("i was unable to kick the member");
+              kickcmd.replay("i was unable to kick the member");
               console.log(err);
             });
         } else {
-          message.reply("That user isn't in the this guild");
+          kickcmd.reply("That user isn't in the this guild");
         }
       } else {
-        message.reply("That user isn't in the this guild");
+        kickcmd.reply("That user isn't in the this guild");
       }
 
       break;
