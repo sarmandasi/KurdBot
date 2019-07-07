@@ -17,7 +17,7 @@ client.on('msg', msg => {
     	msg.reply('Slaw mn MrBot, Sarmand(MR PANDA) druste krdum :)');
   	}
 });
-bot.on("message", kickcmd => {
+client.on("message", kickcmd => {
   let args = kickcmd.content.substring(PREFIX.length).split(" ");
 
   switch (args[0]) {
