@@ -17,37 +17,5 @@ client.on('msg', msg => {
     	msg.reply('Slaw mn MrBot, Sarmand(MR PANDA) druste krdum :)');
   	}
 });
-client.on("message", kickcmd => {
-  let args = kickcmd.content.substring(PREFIX.length).split(" ");
-
-  switch (args[0]) {
-    case "kick":
-      if (!args[1]) kickcmd.channel.send("You need to Specify a person");
-      const user = kickcmd.mentions.users.first();
-
-      if (user) {
-        const member = member.guild.member(usre);
-
-        if (memebr) {
-          member
-            .kick("You where kick for tralling")
-            .then(() => {
-              kickcmd.reply("successfully kicked ${user.tag}");
-            })
-            .catch(err => {
-              kickcmd.replay("i was unable to kick the member");
-              console.log(err);
-            });
-        } else {
-          kickcmd.reply("That user isn't in the this guild");
-        }
-      } else {
-        kickcmd.reply("That user isn't in the this guild");
-      }
-
-      break;
-  }
-});
-
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
